@@ -1,0 +1,2 @@
+#disallow this huge security gap we have. lol
+deny from all

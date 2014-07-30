@@ -1,0 +1,21 @@
+<h2>Church Information</h2>
+* Required
+<center><b><font color="red"><?php echo $error; ?></font></b></center>
+<center><b><font color="red" size="14"><?php echo $alert; ?></font></b></center>
+<form name="church_info" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+	<label for="current_church">Church currently attending *</label>
+   		<input type="text" name="current_church" id="current_church" value="<?php echo $current_church; ?>" /><br />
+    <label for="religion">Religion/Denomination *</label>
+    	<input type="text" name="religion" id="religion" value="<?php echo $religion; ?>" /><br />
+    <label for="immersed">Are you an immersed believer? *</label>
+    	<input type="radio" name="immersed" id="immersed" value="yes" />Yes
+	    <input type="radio" name="immersed" id="immersed" value="no" />No<br />
+    <label for="church_attendance">How often do you attend church services? *</label>
+    	<input type="radio" name="church_attendance" id="church_attendance" value="weekly" />Weekly
+        <input type="radio" name="church_attendance" id="church_attendance" value="2_3_per_month" />2-3x per month
+        <input type="radio" name="church_attendance" id="church_attendance" value="less_than" />Less than 2-3x per month<br />
+    <label for="attendance_length">How long have you been attending this church? *</label>
+    	<input type="text" name="attendance_length" id="attendance_length" value="<?php echo $attendance_length; ?>" /><br />
+	<input type="submit" value="Save Information" />
+    <input type="reset" value="Reset Form" />
+</form>

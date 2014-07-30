@@ -1,0 +1,11 @@
+<?php
+	// echo $app_type; // We have this var
+    $app_type_info_query = "SELECT * FROM tbl_app_type WHERE type_id = '$app_type' LIMIT 1";
+    $app_type_info = mysql_fetch_assoc(mysql_query($app_type_info_query));
+    $required_sections_query = "SELECT * FROM tbl_section WHERE required_" . $app_type_info['type_abbr'] . " = '1' ORDER BY section_id ASC";
+    $required_sections = mysql_query($required_sections_query);
+    while ($row = mysql_fetch_assoc($required_sections)) {
+    	echo '<h3><a href="' . $row['section_link'] . '">' . $row['section_name'] . '</a> -- ' . $row['section_description'] . '</h3>';
+    }
+?>
+<a href="logout.php">Logout</a>

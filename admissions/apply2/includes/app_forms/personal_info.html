@@ -1,0 +1,96 @@
+<h2>Personal Information</h2>
+* Required
+<center><b><font color='red'><?php echo $error; ?></font></b></center>
+<center><b><font color='red' size='14'><?php echo $alert; ?></font></b></center>
+<form name="personal_info" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+	<label for="enrollment_term">Enrollment Term *</label>
+        <input type="radio" name="enrollment_term" id="enrollment_term" value="fall" <?php echo ($enrollment_term == 'fall') ? 'checked' : '' ; ?> />Fall
+        <input type="radio" name="enrollment_term" id="enrollment_term" value="spring" <?php echo ($enrollment_term == 'spring') ? 'checked' : '' ; ?> />Spring
+        <input type="radio" name="enrollment_term" id="enrollment_term" value="summer" <?php echo ($enrollment_term == 'summer') ? 'checked' : '' ; ?> />Summer
+    <label for="enrollment_year">Enrollment Year *</label>
+        <select name="enrollment_year" id="enrollment_year">
+            <?php
+                $curMonth = date('n');
+                $date = date('Y'); 
+                $valDate = date('y');
+                if ($curMonth > 10){
+                    $date++;
+                    $valDate++;
+                }
+                for( $i=0; $i<6; $i++ ): ?>
+                    <option value="<?php echo $date; ?>" <?php echo ($enrollment_year == $date) ? 'selected="selected"' : '' ; ?> ><?php echo $date++; ?></option>
+                <?php endfor;?>
+        </select><br />
+    <label for="social_security_number">Social Security Number *</label>
+	    <input type="text" name="social_security_number" id="social_security_number" value="<?php echo $social_security_number; ?>" />
+    <label for="gender">Gender *</label>
+        <input type="radio" name="gender" id="gender" value="male" <?php echo ($gender == 'male') ? 'checked' : '' ; ?> />Male
+        <input type="radio" name="gender" id="gender" value="female" <?php echo ($gender == 'female') ? 'checked' : '' ; ?> />Female<br />
+    <label for="first_name">First Name (legal) *</label>
+    	<input type="text" name="first_name" id="first_name" value="<?php echo $first_name; ?>" /><br />
+    <label for="middle_name">Middle Name (legal) *</label>
+    	<input type="text" name="middle_name" id="middle_name" value="<?php echo $middle_name; ?>" /><br />
+    <label for="last_name">Last Name (legal) *</label>
+    	<input type="text" name="last_name" id="last_name" value="<?php echo $last_name; ?>" /><br />
+    <label for="address">Address *</label>
+    	<input type="text" name="address" id="address" value="<?php echo $address; ?>" /><br />
+    <label for="city">City *</label>
+    	<input type="text" name="city" id="city" value="<?php echo $city; ?>" /><br />
+    <label for="state">State *</label>
+        <select name="state" id="state">
+            <option value=""></option>
+            <?php
+                $query = "SELECT * FROM tbl_state ORDER BY state_name ASC";
+                $data = mysql_query($query);
+                while ($row = mysql_fetch_array($data)) {
+                ?>
+                    <option value="<?php echo $row['state_id']; ?>" <?php echo ($state == $row['state_id']) ? 'selected="selected"' : '' ; ?> ><?php echo $row['state_name'] . ' (' . $row['state_abbr'] .')'; ?></option>
+                <?php
+                }
+            ?>
+        </select><br />
+    <label for="zip">Zip Code *</label>
+    	<input type="text" name="zip" id="zip" value="<?php echo $zip; ?>" /><br />
+    <label for="phone1">Phone 1 *</label>
+    	<input type="text" name="phone1" id="phone1" value="<?php echo $phone1; ?>" />
+    <label for="phone1_type">Phone Type</label>
+        <select name="phone1_type" id="phone1_type">
+            <option value=""></option>
+            <option value="home_phone" <?php echo ($phone1_type == 'home_phone') ? 'selected="selected"' : '' ; ?> />Home Phone</option>
+            <option value="cell_phone" <?php echo ($phone1_type == 'cell_phone') ? 'selected="selected"' : '' ; ?> />Cell Phone</option>
+            <option value="work_phone" <?php echo ($phone1_type == 'work_phone') ? 'selected="selected"' : '' ; ?> />Work Phone</option>
+        </select><br />
+    <div id="can_text_div1" style="display:none;">
+        <label for="can_text1">May we text you at this number?</label>
+            <input type="radio" name="can_text1" id="can_text1" value="yes" <?php echo ($can_text1 == 'yes') ? 'checked' : '' ; ?> />Yes
+            <input type="radio" name="can_text1" id="can_text1" value="no" <?php echo ($can_text1 == 'no') ? 'checked' : '' ; ?> />No<br />
+    </div>
+    <label for="phone2">Phone 2</label>
+    	<input type="text" name="phone2" id="phone2" value="<?php echo $phone2; ?>" />
+    <label for="phone2_type">Phone Type</label>
+        <select name="phone2_type" id="phone2_type">
+            <option value=""></option>
+            <option value="home_phone" <?php echo ($phone2_type == 'home_phone') ? 'selected="selected"' : '' ; ?> />Home Phone</option>
+            <option value="cell_phone" <?php echo ($phone2_type == 'cell_phone') ? 'selected="selected"' : '' ; ?> />Cell Phone</option>
+            <option value="work_phone" <?php echo ($phone2_type == 'work_phone') ? 'selected="selected"' : '' ; ?> />Work Phone</option>
+        </select><br />
+    <div id="can_text_div2" style="display:none;">
+        <label for="can_text2">May we text you at this number?</label>
+            <input type="radio" name="can_text2" id="can_text2" value="yes" <?php echo ($can_text2 == 'yes') ? 'checked' : '' ; ?> />Yes
+            <input type="radio" name="can_text2" id="can_text2" value="no" <?php echo ($can_text2 == 'no') ? 'checked' : '' ; ?> />No<br />
+    </div>
+    <label for="email">Email *</label>
+    	<input type="text" name="email" id="email" value="<?php echo $email; ?>" readonly="readonly" /><br />
+    <label for="birthday">Date of Birth *</label>
+    	<input type="text" name="birthday" id="birthday" value="<?php echo $birthday; ?>" /><br />
+    <label for="marital_status">Marital Status *</label>
+	    <input type="radio" id="marital_status" name="marital_status" value="never_married" <?php echo ($marital_status == 'never_married') ? 'checked' : '' ; ?> />Never Married
+        <input type="radio" id="marital_status" name="marital_status" value="married" <?php echo ($marital_status == 'married') ? 'checked' : '' ; ?> />Married
+        <input type="radio" id="marital_status" name="marital_status" value="widowed" <?php echo ($marital_status == 'widowed') ? 'checked' : '' ; ?> />Widowed
+        <input type="radio" id="marital_status" name="marital_status" value="divorced" <?php echo ($marital_status == 'divorced') ? 'checked' : '' ; ?> />Divorced
+        <input type="radio" id="marital_status" name="marital_status" value="separated" <?php echo ($marital_status == 'separated') ? 'checked' : '' ; ?> />Separated<br />
+    <label for="is_citizen">Are you a citizen of the United States? *</label>
+    	<input type="radio" name="is_citizen" id="is_citizen" value="yes" <?php echo ($is_citizen == 'yes') ? 'checked' : '' ; ?> />Yes
+        <input type="radio" name="is_citizen" id="is_citizen" value="no" <?php echo ($is_citizen == 'no') ? 'checked' : '' ; ?> />No<br /><br />
+    <input type="submit" name="save_info" value="Save and Continue" />
+</form><br /><br />

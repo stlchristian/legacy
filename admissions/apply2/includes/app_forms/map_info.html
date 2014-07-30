@@ -1,0 +1,13 @@
+<h2>Ministry Advancement Program</h2>
+<center><b><font color="red"><?php echo $error; ?></font></b></center>
+<center><b><font color="red" size="14"><?php echo $alert; ?></font></b></center>
+* Required
+<form name="map_info" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+	<p>The Ministry Advancement Program (MAP) is a for-credit course in which students are enrolled every semester at SLCC.  Successful completion of the program is a graduation requirement for all students. MAP requirements include service to the campus, the community, and the church.  The time commitments for MAP are approximately five hours or more per week.</p>
+    <label for="guidelines">Do you agree to abide by the <a href="../../academics/m_a_p/" target="_blank">MAP guidelines</a></label>
+    	<input type="radio" name="guidelines" id="guidelines" value="yes" />Yes
+        <input type="radio" name="guidelines" id="guidelines" value="no" />No<br />
+	<br />
+    <input type="submit" value="Save Information" />
+    <input type="reset" value="Reset Form" />
+</form>

@@ -1,0 +1,72 @@
+<h2>Educational Information</h2>
+* Required
+<center><b><font color="red"><?php echo $error; ?></font></b></center>
+<center><b><font color="red" size="14"><?php echo $alert; ?></font></b></center>
+<form name="educational_info" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+	<label for="hs_name">High School *</label>
+    <input type="text" name="hs_name" id="hs_name"><br />
+    <label for="hs_city">High School City *</label>
+    <input type="text" name="hs_city" id="hs_city">
+    <label for="hs_state">High School State *</label>
+    <select name="hs_state" id="hs_state">
+    	<option value=""></option>
+        <?php
+            $state_query = "SELECT * FROM tbl_state ORDER BY state_name ASC";
+            $state_result = mysql_query($state_query);
+            while ($row = mysql_fetch_assoc($state_result)) {
+                echo '<option value="' . $row['state_id'] . '">' . $row['state_name'] . ' (' . $row['state_abbr'] . ')</option>';
+            }
+        ?>
+    </select><br />
+    <input type="checkbox" name="hs_diploma" id="hs_diploma">
+    <label for="hs_diploma">High Schol Diploma *</label>
+    <label for="hs_grad_date">Graduation Year *</label>
+    <input type="text" name="hs_grad_date" id="hs_grad_date">
+    <label for="hs_gpa">GPA *</label>
+    <input type="text" name="hs_gpa" id="hs_gpa"><br />
+    <input type="checkbox" name="ged" id="ged">
+    <label for="ged">GED</label>
+    <label for="ged_date">Completion Date</label>
+    <input type="text" name="ged_date" id="ged_date">(mm/dd/yyyy)<br />
+    <input type="checkbox" name="act" id="act">
+    <label for="act">ACT Taken</label>
+    <label for="act_score">ACT Score</label>
+    <input type="text" name="act_score" id="act_score">
+    <label for="act_date">Date taken:</label>
+    <input type="text" name="act_date" id="act_date">(mm/yyyy)<br />
+    <input type="checkbox" name="sat" id="sat">
+    <label for="sat">SAT Taken</label>
+    <label for="sat_score">SAT Score</label>
+    <input type="text" name="sat_score" id="sat_score">
+    <label for="sat_date">Date taken:</label>
+    <input type="text" name="sat_date" id="sat_date">(mm/yyyy)<br />
+    <b>College #1</b><br />
+    <label for="c1_name">College Name</label>
+    <input type="text" name="c1_name" id="c1_name">
+    <label for="c1_dates">Dates of Attendance</label>
+    <input type="text" name="c1_dates" id="c1_dates">(mm/yyyy-mm/yyyy)<br />
+    <label for="c1_hours">Hours Earned</label>
+    <input type="text" name="c1_hours" id="c1_hours">
+    <label for="c1_gpa">GPA</label>
+    <input type="text" name="c1_gpa" id="c1_gpa"><br />
+    <b>College #2</b><br />
+	<label for="c2_name">College Name</label>
+    <input type="text" name="c2_name" id="c2_name">
+    <label for="c2_dates">Dates of Attendance</label>
+    <input type="text" name="c2_dates" id="c2_dates">(mm/yyyy-mm/yyyy)<br />
+    <label for="c2_hours">Hours Earned</label>
+    <input type="text" name="c2_hours" id="c2_hours">
+    <label for="c2_gpa">GPA</label>
+    <input type="text" name="c2_gpa" id="c2_gpa"><br />
+    <b>College #3</b><br />
+    <label for="c3_name">College Name</label>
+    <input type="text" name="c3_name" id="c3_name">
+    <label for="c3_dates">Dates of Attendance</label>
+    <input type="text" name="c3_dates" id="c3_dates">(mm/yyyy-mm/yyyy)<br />
+    <label for="c3_hours">Hours Earned</label>
+    <input type="text" name="c3_hours" id="c3_hours">
+    <label for="c3_gpa">GPA</label>
+    <input type="text" name="c3_gpa" id="c3_gpa"><br />
+	<br /><input type="submit" value="Save Information" />
+    <input type="reset" value="Reset Form" />
+</form>

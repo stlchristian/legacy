@@ -1,0 +1,31 @@
+<center><b><font color='red'><?php echo $error; ?></font></b></center>
+<center><b><font color='red' size='14'><?php echo $alert; ?></font></b></center>
+<div style="float:left;">
+    <p>Sign up to access the online application</p>
+    <form name="signup" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+        <label for="firstname">First Name:</label>
+        <input type="text" id="firstname" name="firstname" value="<?php echo $_POST['firstname']; ?>" /><br />
+        <label for="lastname">Last Name:</label>
+        <input type="text" id="lastname" name="lastname" value="<?php echo $_POST['lastname']; ?>" /><br />
+        <label for="email">Email Address:</label>
+        <input type="text" id="email" name="email" value="<?php echo $_POST['email']; ?>" /><br />
+        <label for="password1">Password:</label>
+        <input type="password" id="password1" name="password1" /><br />
+        <label for="password2">Confirm:</label>
+        <input type="password" id="password2" name="password2" /><br />
+        <input type="submit" value="Sign Up" name="signup" />
+    </form>
+</div>
+<div align="right" style="float:left;">
+    <p>Continue an existing application:</p>
+    <form name="login" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+        <label for="user_email">Email Address:</label>
+        <input type="text" id="user_email" name="user_email" value="<?php echo $_POST['user_email']; ?>" /><br />
+        <label for="user_password">Password:</label>
+        <input type="password" id="user_password" name="user_password" /><br />
+        <input type="submit" value="Sign In" name="login" />
+    </form>
+</div>
+<div style="float:right;">
+	<p>You need an email address to complete the online application. If you don't have one already, try creating one with <a href="http://gmail.com/">Google</a> or <a href="http://hotmail.com/">Microsoft</a></p>
+</div>

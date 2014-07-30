@@ -1,0 +1,15 @@
+<h2>Essay Information</h2>
+<center><b><font color="red"><?php echo $error; ?></font></b></center>
+<center><b><font color="red" size="14"><?php echo $alert; ?></font></b></center>
+<p>Given that a student is more likely to experience success at an institution when there is a good match between the institution's mission and standards and the student's goals, please respond to these questions.</p>
+* Required
+<form name="essay_info" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+	<label for="essay_one">Please describe your spiritual journey. How have you become more serious about your Christian faith? How will attending SLCC help you on this journey? *</label><br />
+    	<textarea name="essay_one" id="essay_one" cols="50" rows="15"><?php echo $essay_one; ?></textarea><br />
+    <label for="essay_two">What is it about the mission and core values of SLCC that relates to your personal goals? (Please refer here for <a href="../../about/our_mission_statement/" target="_blank">mission statement</a> and <a href="../../about/our_core_values/" target="_blank">core values</a>.) *</label><br />
+    	<textarea name="essay_two" id="essay_two" cols="50" rows="15"><?php echo $essay_two; ?></textarea><br />
+    <label for="essay_three">How do you feel your education at SLCC will help you reach your goals? *</label>
+    	<textarea name="essay_three" id="essay_three" cols="50" rows="15"><?php echo $essay_three; ?></textarea><br />
+	<input type="submit" value="Save Information" />
+	<input type="reset" value="Reset Form" />
+</form>

@@ -1,0 +1,12 @@
+<p>Thank you for confirming your email address. Please login below to begin the application process</p>
+<center><b><font color='red'><?php echo $error; ?></font></b></center>
+<center><b><font color='red' size='14'><?php echo $alert; ?></font></b></center>
+<form name="login" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+	<input type="hidden" id="confirm_string" name="confirm_string" value="<?php echo $confirm_string; ?>" />
+    <input type="hidden" id="user_id" name="user_id" value="<?php echo $user_id; ?>" />
+    <label for="email">Email Address:</label>
+    <input type="text" id="email" name="email" value="<?php echo $email; ?>" readonly="readonly" /><br />
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" /><br />
+    <input type="submit" value="Sign In" name="login" />
+</form>

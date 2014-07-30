@@ -1,0 +1,16 @@
+<h2>Financial Aid Information</h2>
+<center><b><font color="red"><?php echo $error; ?></font></b></center>
+<center><b><font color="red" size="14"><?php echo $alert; ?></font></b></center>
+* Required
+<form name="financial_info" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+	<label for="federal_aid">Are you planning to apply for federal financial aid? *</label>
+    	<input type="radio" name="federal_aid" id="federal_aid" value="yes" />Yes
+        <input type="radio" name="federal_aid" id="federal_aid" value="no" />No<br />
+    <label for="veterans_benefits">Are you planning to apply for veterans benefits? *</label>
+    	<input type="radio" name="veterans_benefits" id="veterans_benefits" value="yes" />Yes
+        <input type="radio" name="veterans_benefits" id="veterans_benefits" value="no" />No<br />
+    <p><em>(Please note, if you are in default on a student loan or owe money to a previous college, you will need to take care of those debts before you can be accepted to SLCC.)</em></p>
+	<br />
+    <input type="submit" value="Save Information">
+    <input type="reset" value="Reset Form">
+</form>

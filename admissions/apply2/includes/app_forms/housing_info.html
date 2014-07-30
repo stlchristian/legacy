@@ -1,0 +1,24 @@
+<h2>Housing Information</h2>
+<center><b><font color="red"><?php echo $error; ?></font></b></center>
+<center><b><font color="red" size="14"><?php echo $alert; ?></font></b></center>
+* Required
+<form name="housing_info" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+	<label for="housing">Do you desire campus housing? *</label>
+    	Yes<input type="radio" name="housing" id="housing" value="yes" />
+        No<input type="radio" name="housing" id="housing" value="no" /><br />
+    <label for="res_hall"></label>
+    	Residence Hall<input type="radio" name="res_hall" id="res_hall" value="res_hall" />
+        Married Housing<input type="radio" name="res_hall" id="res_hall" value="married_housing" /><br /><br />
+    <em>If you plan to live in married housing, please answer the following questions:</em><br />
+    <label for="family">Is your family relocating with you to SLCC?</label>
+    	Yes<input type="radio" name="family" id="family" value="yes" />
+        No<input type="radio" name="family" id="family" value="no" /><br />
+    <label for="engaged">Are you engaged requesting married housing?</label>
+    	Yes<input type="radio" name="engaged" id="engaged" value="yes" />
+        No<input type="radio" name="engaged" id="engaged" value="no" /><br />
+    <label for="wedding_date">If yes, when is the wedding?</label>
+    	<input type="text" name="wedding_date" id="wedding_date" value="<?php echo $wedding_date; ?>" />(mm/dd/yyyy)
+	<br />
+    <input type="submit" value="Save Information" />
+    <input type="reset" value="Reset Form" />
+</form>

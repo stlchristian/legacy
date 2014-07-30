@@ -1,0 +1,73 @@
+body {
+	background-color: #F0F0E6;
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+a:link,a:active,a:visited {
+	font-family: Arial, Helvetica, sans-serif;
+	text-decoration: none;
+	color: #122B81;
+}
+a.download {
+	font-size: 11px;
+	line-height: 11px;
+	color: #003366;
+	text-decoration: underline;
+	text-align: left;
+}
+a.download:hover {
+	color: #00CC33;
+	text-decoration: none;
+}
+a.download:visited {
+	text-decoration: underline;
+}
+.minopps1 {
+	font-size: 14px;
+	font-weight: bolder;
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 60px;
+	position: static;
+	z-index: auto;
+	border-top: thin dashed #000000;
+	border-right: thin none #000000;
+	border-bottom: thin dashed #000000;
+	border-left: thin none #000000;
+	width: 100%;
+	padding: 0px;
+	float: left;
+	text-align: left;
+}
+table.minopps {
+	border-top: 1px solid #000000;
+	border-right: 1px solid #000000;
+	border-bottom: 1px solid #000000;
+	border-left: 1px solid #000000;
+	background-color: #FFFFFF;
+}
+hr.minopps {
+	line-height: 1px;
+	margin: 0px;
+	padding: 0px;
+}
+.heading {
+	font-size: 16px;
+	font-weight: bolder;
+	color: #FFFFFF;
+}
+a.headinglink {
+	font-weight: bold;
+	text-decoration: underline;
+}
+a.headinglink:hover {
+	font-weight: bolder;
+	text-decoration: none;
+}
+a.headinglink:visited {
+	text-decoration: underline;
+}
+.rowtitle {
+	font-weight: bold;
+	color: #FFFFFF;
+	font-size: 12px;
+}

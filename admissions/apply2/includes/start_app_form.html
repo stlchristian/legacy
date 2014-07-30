@@ -1,0 +1,23 @@
+<?php
+	connect_to_database();
+    $query = "SELECT * FROM tbl_app_type";
+    $result = mysql_query($query);
+?>
+
+<center><b><font color='red'><?php echo $error; ?></font></b></center>
+<center><b><font color='red' size='14'><?php echo $alert; ?></font></b></center>
+
+<form name="start_app" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+<?php
+    while ($row = mysql_fetch_assoc($result)) {
+    	echo '<input type="radio" id="app_type" name="app_type" value="' . $row['type_id'] . '">Begin an application as ';
+        if (preg_match('/^[aeiou]/', strtolower($row['type_name'][0]))) {
+        	echo 'an';
+        } else {
+        	echo 'a';
+        }
+        echo ' <strong>' . $row['type_name'] . '</strong> Student<br />';
+    }
+?>
+    <input type="submit" id="start_app" name="start_app" value="Start Application" />
+</form>

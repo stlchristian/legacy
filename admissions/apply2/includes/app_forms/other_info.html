@@ -1,0 +1,35 @@
+<h2>Other Information</h2>
+<center><b><font color="red"><?php echo $error; ?></font></b></center>
+<center><b><font color="red" size="14"><?php echo $alert; ?></font></b></center>
+* Required
+<form name="other_info" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+	<label for="suspended">Have you ever been dismissed or suspended from another school? *</label>
+    	<input type="radio" name="suspended" id="suspended" value="yes" />Yes
+        <input type="radio" name="suspended" id="suspended" value="no" />No<br />
+        <em>(If yes, you must provide a letter of explanation.)</em><br />
+    <label for="convicted">Have you ever been convicted of a crime (excluding traffic violations)? *</label>
+    	<input type="radio" name="convicted" id="convicted" value="yes" />Yes
+        <input type="radio" name="convicted" id="convicted" value="no" />No<br />
+        <em>(If yes, you must provide a letter of explanation.)</em><br />
+    <label for="contact_reference">Do you give SLCC permission to contact your references? *</label>
+    	<input type="radio" name="contact_reference" id="contact_reference" value="yes" />Yes
+        <input type="radio" name="contact_reference" id="contact_reference" value="no" />No<br />
+    <label for="first_heard">How did you first hear about Saint Louis Christian College?</label>
+    	<input type="text" name="first_heard" id="first_heard" value="<?php echo $first_heard; ?>" /><br /><br />
+    Has anyone in your family attended SLCC?<br />
+    <label for="relative_name">Name</label>
+    	<input type="text" name="relative_name" id="relative_name" value="<?php echo $relative_name; ?>" />
+    <label for="rlationship">Relationship to you</label>
+    	<input type="text" name="relationship" id="relationship" value="<?php echo $relationship; ?>" /><br />
+    <label for="athletics">Are you interested in athletics?</label>
+    	<?php
+        	$athletics_query = "SELECT * FROM tbl_athletic";
+            $athletics_result = mysql_query($athletics_query);
+            while ($row = mysql_fetch_assoc($athletics_result)) {
+            	echo $row['athletic_name'] . '<input type="checkbox" name="athletics" id="athletics" value="' . $row['athletic_id'] . '" />';
+            }
+        ?>
+	<br />
+    <input type="submit" value="Save Information" />
+    <input type="reset" value="Reset Form" />
+</form>

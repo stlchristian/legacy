@@ -1,0 +1,52 @@
+<h2>Enrollment Information</h2>
+* Required
+<center><b><font color="red"><?php echo $error; ?></font></b></center>
+<center><b><font color="red" size="14"><?php echo $alert; ?></font></b></center>
+<form name="enrollment_info" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+	<input type="hidden" name="save_enrollment_info" value="1" />
+	<label for="course_load">What is your intended course load? *</label>
+	    <input type="radio" name="course_load" id="course_load" value="full_time" <?php echo ($course_load == 'full_time') ? 'checked' : '' ; ?> />Full-Time
+        <input type="radio" name="course_load" id="course_load" value="part_time" <?php echo ($course_load == 'part_time') ? 'checked' : '' ; ?> />Part-Time
+        <input type="radio" name="course_load" id="course_load" value="jesus_101" <?php echo ($course_load == 'jesus_101') ? 'checked' : '' ; ?> />Jesus 101<br />
+        <em>(If selecting Jesus 101, skip to church information)</em><br />
+    <label for="program">Are you interested in our traditional day program or evening Adults In Ministry program (AIM)? *</label>
+    	<input type="radio" name="program" id="program" value="day" <?php echo ($program == 'day') ? 'checked' : '' ; ?> />Day
+        <input type="radio" name="program" id="program" value="aim" <?php echo ($program == 'aim') ? 'checked' : '' ; ?> />AIM<br />
+    <label for="incoming_status">What is your incoming status? *</label>
+    	<input type="radio" name="incoming_status" id="incoming_status" value="freshman" <?php echo ($incoming_status == 'freshman') ? 'checked' : '' ; ?> />Freshman
+        <input type="radio" name="incoming_status" id="incoming_status" value="transfer" <?php echo ($incoming_status == 'transfer') ? 'checked' : '' ; ?> />Transfer
+        <input type="radio" name="incoming_status" id="incoming_status" value="re_admit" <?php echo ($incoming_status == 're_admit') ? 'checked' : '' ; ?> />Re-admit<br />
+    <label for="readmit_date">If you're applying for re-admission, last date of attendance</label>
+    	<input type="text" name="readmit_date" id="readmit_date" value="<?php echo $readmit_date; ?>" />(mm/yyyy)<br />
+    <em>(Applicants to the AIM program are required to be at least 21 years old for the Associate degree and 23 years old for the Bachelor degree.)</em><br />
+    <label for="degree">What is your intended major of study? *</label><br />
+        <?php
+            // get all the degrees we offer
+            $degree_query = "SELECT * FROM tbl_degree";
+            $degree_result = mysql_query($degree_query);
+            
+            while ($row = mysql_fetch_assoc($degree_result)) {
+                // give the degree option
+                echo '<input type="radio" name="degree" id="degree" value="' . $row['degree_id'] . '" ' . (($degree == $row['degree_id']) ? 'checked' : '' ) . ' />' . $row['degree_name'] . '<br /><div id="' . $row['degree_abbr'] . '_major">';
+                
+                // get all the majors we offer for this degree
+                $major_query = "SELECT * FROM tbl_major WHERE degree_id = '" . $row['degree_id'] . "'";
+                $major_result = mysql_query($major_query);
+                while ($row = mysql_fetch_assoc($major_result)) {
+                    echo '<input style="margin-left:5em;" type="radio" name="major" id="major" value="' . $row['major_id'] . '" ' . (($major == $row['major_id']) ? 'checked' : '' ) . ' />' . $row['major_name'] . '<br />';
+                }
+                echo '</div>';
+            }
+        ?>
+    <label for="enrollment_status">What is your desired enrollment status? *</label>
+        <?php
+            // Get all the enrollmnet options from the db
+            $enrollment_query = "SELECT * FROM tbl_enrollment";
+            $enrollment_result = mysql_query($enrollment_query);
+            while ($row = mysql_fetch_assoc($enrollment_result)) {
+                echo '<input type="radio" name="enrollment_status" id="enrollment_status" value="' . $row['enrollment_id'] . '" ' . (($enrollment_status == $row['enrollment_id']) ? 'checked' : '' ) . ' />' . $row['enrollment_name'];
+            }
+            echo '<br />';
+        ?>
+    <input type="submit" name="save_enrollment_info" value="Save and Continue" /><br /><br />
+</form>

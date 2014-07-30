@@ -1,0 +1,27 @@
+<h2>Optional Information</h2>
+<center><b><font color="red"><?php echo $error; ?></font></b></center>
+<center><b><font color="red" size="14"><?php echo $alert; ?></font></b></center>
+<p>All of this information is optional. If you choose to fill out any of this form, it will be used for statistical purposes only.</p>
+<form name="optional_info" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+	<label for="citizenship">Country of citizenship:</label>
+    	<input type="text" name="citizenship" id="citizenship" value="<?php echo $citizenship; ?>" /><br />
+    <label for="ethnicity">What is your ethnic brackground?</label><em>(Please select all that apply.)</em><br />
+        <?php
+        	$ethnic_query = "SELECT * FROM tbl_ethnicity";
+            $ethnic_results = mysql_query($ethnic_query);
+            while ($row = mysql_fetch_assoc($ethnic_results)) {
+            	echo $row['ethnicity_name'] . '<input type="checkbox" name="ethnicity" id="ethnicity" value="' . $row['ethnicity_id'] . '" />';
+            }
+            echo '<br />';
+        ?>
+    <label for="disability">Do you have a diagnosed learning or medical disability?</label>
+    	<input type="radio" name="disability" id="disability" value="yes" />Yes
+        <input type="radio" name="disability" id="disability" value="no" />No<br />
+    <label for="diagnosis">If yes, what is the disability?</label>
+    	<input type="text" name="diagnosis" id="diagnosis" value="<?php echo $diagnosis; ?>" />
+    <p><em>* SLCC's center for student success offers a limited amount of accomodations to students with a diagnosed learning disability.
+    	Upon acceptance to SLCC, a representative will contact you to discuss your needs and let you know what we have to offer you.</em></p>
+	<br />
+    <input type="submit" value="Save Information" />
+    <input type="reset" value="Reset Form" />
+</form>

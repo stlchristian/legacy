@@ -1,0 +1,17 @@
+<h2>Lifestyle Information</h2>
+* Required
+<center><b><font color="red"><?php echo $error; ?></font></b></center>
+<center><b><font color="red" size="14"><?php echo $alert; ?></font></b></center>
+<form name="lifestyle_info" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+	<label for="lifestyle_expectations"><a href="../../academics/catalog/pdf/guide_to_student_life.pdf" target="_blank">As you can see here</a>, we are very specific about our Lifestyle Expectations as a student at SLCC. We have these expectations because we care about the spiritual and physical well-being of our students.<br />Do you agree to abide by each of the expectations listed?<br /></label>
+    	<input type="radio" name="lifestyle_expectations" id="lifestyle_expectations" value="yes" />Yes
+        <input type="radio" name="lifestyle_expectations" id="lifestyle_expectations" value="no" />No<br />
+        <p><em>If yes, please proceed to the next question<br />
+        If no, but you would still like to be considered for acceptance to SLCC, please feel free to contact the Dean of Students or the MAP Coordinator. In such a case, you may still complete this application and submit it. Your application, however, will be considered on hold until the Dean of Students or the MAP Coordinator verifies that you have had a discussion with them to explain your answer and forumalate a plan to address whatever lifestyle expectation is at issue.</em></p>
+    <label for="violation_action">Do you understand that any violation of these expectations may result in a disciplinary action?</label><br />
+    	<input type="radio" name="vioalation_action" id="vioalation_action" value="yes" />Yes
+    	<input type="radio" name="vioalation_action" id="vioalation_action" value="no" />No<br />
+	<br />
+	<input type="submit" value="Save Information" />
+    <input type="reset" value="Reset Form" />
+</form>
