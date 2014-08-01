@@ -1,5 +1,4 @@
 <?php
-if ($_SERVER["SERVER_PORT"]!=443){ header("Location: https://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']); exit(); }
 //Making sure the other two pages are complete
 session_start();
 if(empty($_SESSION)){

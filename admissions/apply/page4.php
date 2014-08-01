@@ -1,5 +1,4 @@
 <?
-if ($_SERVER["SERVER_PORT"]!=443){ header("Location: https://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']); exit(); }
 session_start();
 include('process.php');
 if(empty($_SESSION)){

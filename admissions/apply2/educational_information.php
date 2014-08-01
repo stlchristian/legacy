@@ -1,5 +1,4 @@
 <?php
-if ($_SERVER["SERVER_PORT"]!=443){ header("Location: https://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']); exit(); }
 require_once('includes/session.php');
 require_once('includes/functions.php');
 connect_to_database();

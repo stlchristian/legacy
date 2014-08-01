@@ -7,7 +7,6 @@ if(!empty($viewProject) && $section == "mapAdmin"){
 } else {
 	$project = '';
 }
-if ($_SERVER["SERVER_PORT"]!=443){ header("Location: https://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].$project); exit(); }
 if ( $_POST[sport_sel] or $_POST[action_sel] or $_POST[sport_change]!= "" ){
 	if (($_POST[sport_change]!="") && $_POST[sport_change]!=$_POST[sport_sel])$_POST[sport_sel]=$_POST[sport_change];
 	setcookie("sport_sel",$_POST[sport_sel]);

@@ -2,7 +2,6 @@
 
 // Any Error return must end in '|!' for processing on the receiving pages.
 
-if ($_SERVER["SERVER_PORT"]!=443){ header("Location: https://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']); exit(); }
 session_start();
 $referrerExp=explode("?",$_SERVER['HTTP_REFERER']);
 $referrer=$referrerExp[0];
