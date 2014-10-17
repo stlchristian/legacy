@@ -15,7 +15,7 @@ function format_date($mysql_date,$var)
 function time_fields ($time)
 {
 	$time_seg=explode(":",$time);
-	$timestamp=mktime($time_seg[0],$time_seg[1],$time_seg[2]);
+	$timestamp=mktime(intval($time_seg[0]),intval($time_seg[1]),intval($time_seg[2]));
 	$h=date("g",$timestamp);
 	$m=date("i",$timestamp);
 	$am_pm=date("A",$timestamp);
